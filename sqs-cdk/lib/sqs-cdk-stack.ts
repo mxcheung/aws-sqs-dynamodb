@@ -2,6 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb'
+import * as sqs from '@aws-cdk/aws-sqs';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as path from 'path';
 import { RemovalPolicy, Stack, StackProps, Duration } from 'aws-cdk-lib';
