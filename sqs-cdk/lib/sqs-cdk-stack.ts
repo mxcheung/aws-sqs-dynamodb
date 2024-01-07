@@ -48,6 +48,10 @@ export class SqsCdkStack extends cdk.Stack {
     // Grant the Lambda function permissions to send messages to the SQS queue
     queue.grantSendMessages(lambdaFunction);    
     
+    // Grant the Lambda function permissions to consume messages from the SQS queue
+    queue.grantConsumeMessages(lambdaFunction);
+
+    
     // Create an integration for the Lambda function
     const lambdaIntegration = new apigateway.LambdaIntegration(lambdaFunction);
 
