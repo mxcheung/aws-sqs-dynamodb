@@ -9,7 +9,7 @@ def lambda_handler(event, context):
 
     fortid = (random.randint(1,16))
     dynamodb = boto3.resource("dynamodb")
-    table = dynamodb.Table('messages')
+    table = dynamodb.Table('Message')
 
     response = table.get_item(
         Key={
