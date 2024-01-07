@@ -40,8 +40,8 @@ X-Ray
 # step 1 - quickstart
 
 ```
-git clone https://github.com/mxcheung/fortune-cookies.git
-cd /home/ec2-user/environment/fortune-cookies/fortunes-cdk
+git clone https://github.com/mxcheung/aws-sqs-dynamodb.git
+cd /home/ec2-user/environment/fortune-cookies/sqs-cdk
 . ./install.sh
 
 ```
