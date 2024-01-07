@@ -41,7 +41,7 @@ X-Ray
 
 ```
 git clone https://github.com/mxcheung/aws-sqs-dynamodb.git
-cd /home/ec2-user/environment/fortune-cookies/sqs-cdk
+cd /home/ec2-user/environment/aws-sqs-dynamodb/sqs-cdk
 . ./install.sh
 
 ```
