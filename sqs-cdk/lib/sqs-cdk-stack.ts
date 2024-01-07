@@ -3,6 +3,7 @@ import { Construct } from 'constructs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb'
 import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as lambdaEventSources from 'aws-cdk-lib/aws-lambda-event-sources';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as path from 'path';
 import { RemovalPolicy, Stack, StackProps, Duration } from 'aws-cdk-lib';
@@ -54,6 +55,12 @@ export class SqsCdkStack extends cdk.Stack {
     // Grant the Lambda function permissions to consume messages from the SQS queue
     queue.grantConsumeMessages(lambdaFunction);
 
+
+    
+    // Add an SQS Event Source from the SQS Queue to the Lambda Function
+    const eventSource = new lambdaEventSources.SqsEventSource(queue);
+    
+    lambdaFunction.addEventSource(eventSource);
     
     // Create an integration for the Lambda function
     const lambdaIntegration = new apigateway.LambdaIntegration(lambdaFunction);
