@@ -15,7 +15,7 @@ export class SqsCdkStack extends cdk.Stack {
     const table = new dynamodb.Table(this, id, {
       partitionKey: { name: "fort_id", type: dynamodb.AttributeType.NUMBER },
       removalPolicy: RemovalPolicy.DESTROY,
-      tableName: "fortunes"
+      tableName: "messages"
       }
     )
 
