@@ -2,7 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb'
-import * as sqs from '@aws-cdk/aws-sqs';
+import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as path from 'path';
 import { RemovalPolicy, Stack, StackProps, Duration } from 'aws-cdk-lib';
@@ -12,11 +12,6 @@ export class SqsCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // Create an SQS queue
-    const queue = new sqs.Queue(this, 'Message', {
-      visibilityTimeout: cdk.Duration.seconds(300),
-    });
-
     
      //define dynamodb table
     const table = new dynamodb.Table(this, id, {
@@ -25,6 +20,13 @@ export class SqsCdkStack extends cdk.Stack {
       tableName: "Message"
       }
     )
+
+
+    // Create an SQS queue
+    const queue = new sqs.Queue(this, 'Message', {
+      visibilityTimeout: cdk.Duration.seconds(300),
+    });
+
 
     // Create an API Gateway
     const api = new apigateway.RestApi(this, 'CookiesApi', {
@@ -47,10 +49,10 @@ export class SqsCdkStack extends cdk.Stack {
     table.grantReadWriteData(lambdaFunction)
 
     // Grant the Lambda function permissions to send messages to the SQS queue
-    queue.grantSendMessages(lambdaFunction);    
+//    queue.grantSendMessages(lambdaFunction);    
     
     // Grant the Lambda function permissions to consume messages from the SQS queue
-    queue.grantConsumeMessages(lambdaFunction);
+//    queue.grantConsumeMessages(lambdaFunction);
 
     
     // Create an integration for the Lambda function
