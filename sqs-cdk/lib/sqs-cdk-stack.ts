@@ -15,7 +15,7 @@ export class SqsCdkStack extends cdk.Stack {
     const table = new dynamodb.Table(this, id, {
       partitionKey: { name: "fort_id", type: dynamodb.AttributeType.NUMBER },
       removalPolicy: RemovalPolicy.DESTROY,
-      tableName: "messages"
+      tableName: "Message"
       }
     )
 
@@ -31,7 +31,7 @@ export class SqsCdkStack extends cdk.Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, '/../lambda')),
       timeout: Duration.minutes(3),
       environment: {
-        DYNAMODB_TABLE: 'fortunes'
+        DYNAMODB_TABLE: 'Message'
       }
     });
     
