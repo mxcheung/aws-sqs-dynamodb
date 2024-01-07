@@ -11,6 +11,12 @@ export class SqsCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
+    // Create an SQS queue
+    const queue = new sqs.Queue(this, 'Message', {
+      visibilityTimeout: cdk.Duration.seconds(300),
+    });
+
+    
      //define dynamodb table
     const table = new dynamodb.Table(this, id, {
       partitionKey: { name: "MessageId", type: dynamodb.AttributeType.STRING },
