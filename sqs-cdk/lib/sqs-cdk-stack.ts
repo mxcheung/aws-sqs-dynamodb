@@ -45,6 +45,8 @@ export class SqsCdkStack extends cdk.Stack {
     // Grant the Lambda function read/write permissions to the DynamoDB table
     table.grantReadWriteData(lambdaFunction)
 
+    // Grant the Lambda function permissions to send messages to the SQS queue
+    queue.grantSendMessages(lambdaFunction);    
     
     // Create an integration for the Lambda function
     const lambdaIntegration = new apigateway.LambdaIntegration(lambdaFunction);
