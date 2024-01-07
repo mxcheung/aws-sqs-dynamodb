@@ -27,7 +27,7 @@ export class SqsCdkStack extends cdk.Stack {
     // Create lambda function
     const lambdaFunction = new lambda.Function(this, 'YourLambdaFunction', {
       runtime: lambda.Runtime.PYTHON_3_9,
-      handler: 'cookies.lambda_handler', // Assuming the Python file is named "main.py" and the function is named "lambda_handler"
+      handler: 'lambda_function.lambda_handler', // Assuming the Python file is named "main.py" and the function is named "lambda_handler"
       code: lambda.Code.fromAsset(path.join(__dirname, '/../lambda')),
       timeout: Duration.minutes(3),
       environment: {
