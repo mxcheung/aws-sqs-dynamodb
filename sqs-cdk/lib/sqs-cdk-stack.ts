@@ -49,10 +49,10 @@ export class SqsCdkStack extends cdk.Stack {
     table.grantReadWriteData(lambdaFunction)
 
     // Grant the Lambda function permissions to send messages to the SQS queue
-//    queue.grantSendMessages(lambdaFunction);    
+    queue.grantSendMessages(lambdaFunction);    
     
     // Grant the Lambda function permissions to consume messages from the SQS queue
-//    queue.grantConsumeMessages(lambdaFunction);
+    queue.grantConsumeMessages(lambdaFunction);
 
     
     // Create an integration for the Lambda function
