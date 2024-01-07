@@ -53,9 +53,9 @@ cd /home/ec2-user/environment/fortune-cookies/fortunes-cdk
 
 
 ```
-mkdir fortunes-cdk
+mkdir sqs-cdk
 
-cd fortunes-cdk
+cd sqs-cdk
 
 cdk init app --language typescript
 
