@@ -78,17 +78,19 @@ cdk synth
 cdk deploy
 ```
 
-# step 4 - load data
+# step 4 - load data to dynamodb
 
 ```
  aws dynamodb batch-write-item --request-items file://items.json
 ```
 
+# step 4 - send message  to sqs
 
 ```
 Unable to locate credentials. You can configure credentials by running "aws configure"
 aws sqs send-message --queue-url https://sqs.us-east-1.amazonaws.com/879897919494/SqsCdkStack-Message251322C6-bWKhZTJ6oreC --message-body "Information about the largest city in Any Region." --delay-seconds 10
 ```
+
 
 # step 5 - view cookies page via github pages
 View the fortune cookies app here
