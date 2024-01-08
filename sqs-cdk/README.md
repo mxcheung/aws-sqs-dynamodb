@@ -84,7 +84,7 @@ cdk deploy
  aws dynamodb batch-write-item --request-items file://items.json
 ```
 
-# step 4 - send message  to sqs
+# step 5 - send message  to sqs
 
 ```
 Unable to locate credentials. You can configure credentials by running "aws configure"
@@ -92,7 +92,7 @@ aws sqs send-message --queue-url https://sqs.us-east-1.amazonaws.com/87989791949
 ```
 
 
-# step 5 - view cookies page via github pages
+# step 6 - view cookies page via github pages
 View the fortune cookies app here
 Static html calls 
    * api gateway
