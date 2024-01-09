@@ -1,3 +1,10 @@
+# Configuew region
+
+```
+aws configure --region us-east-1
+```
+
+
 # Setup python3 and send message
 
 ```
