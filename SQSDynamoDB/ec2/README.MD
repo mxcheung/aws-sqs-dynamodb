@@ -1,4 +1,4 @@
-# Configuew region
+# Configu new region
 
 ```
 aws configure --region us-east-1
