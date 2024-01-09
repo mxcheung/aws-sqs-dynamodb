@@ -30,8 +30,8 @@ export class SqsCdkStack extends cdk.Stack {
 
 
     // Create an API Gateway
-    const api = new apigateway.RestApi(this, 'CookiesApi', {
-      restApiName: 'Cookies API',
+    const api = new apigateway.RestApi(this, 'SqsApi', {
+      restApiName: 'Sqs API',
     });
     
     // Create lambda function
@@ -67,7 +67,7 @@ export class SqsCdkStack extends cdk.Stack {
 
 
     // Create a resource and associate the Lambda integration with a default method (GET)
-    const helloResource = api.root.addResource('cookies');
+    const helloResource = api.root.addResource('sqs');
     helloResource.addMethod('GET', lambdaIntegration);
     
     
