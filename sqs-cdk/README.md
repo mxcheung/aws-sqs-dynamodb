@@ -21,6 +21,14 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  aws dynamodb batch-write-item --request-items file://items.json
 ```
 
+# aws lambda create-event-source-mapping
+```
+aws lambda create-event-source-mapping \
+    --function-name my-function \
+    --batch-size 5 \
+    --event-source-arn arn:aws:sqs:us-west-2:123456789012:mySQSqueue
+```
+
 # sqs-dynamodb
 sqs-dynamodb
 
